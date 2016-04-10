@@ -8,6 +8,8 @@ import React,{
     TouchableHighlight
 } from 'react-native';
 
+import {Actions} from 'react-native-router-flux'
+
 const { width, height } = Dimensions.get('window');
 const bottomPos = height - (height * 0.30);
 
@@ -63,7 +65,8 @@ export default class SplashScreen extends Component {
         this.setState({username:username})
     }
     _route(){
-        
+        console.log(' hvhjjhvhjbhjb')
+        Actions.accountscreen
     }
     render(){
         return(
@@ -78,7 +81,7 @@ export default class SplashScreen extends Component {
                  <TouchableHighlight
                     style={styles.searchButton}
                     underlayColor="#ccc"
-                    onPress={() => this._route()}>
+                    onPress={Actions.accountscreen}>
                          <Text style={styles.search_btn_text}>Get Started</Text>
                   </TouchableHighlight>
             </View>
