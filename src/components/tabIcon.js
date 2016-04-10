@@ -21,23 +21,32 @@ const array_of_icons = [
     {key:'budget-tab', url:require('./../assets/images/check18-512.png')}
 ];
 
+const { width, height } = Dimensions.get('window');
+const iconWidth = (width * 0.25)
+
 const styles = StyleSheet.create({
     iconContainer:{
         flex:1,
         flexDirection:"column",
-        marginTop:10
+        paddingTop:10,
+        width:iconWidth,
+        alignItems:"center"
     },
     active_iconContainer:{
         flex:1,
         flexDirection:"column",
-        backgroundColor:"#fff",
-        padding:10
+        backgroundColor:"#bdc3c7",
+        width:iconWidth,
+        paddingTop:10,
+        alignItems:"center"
+
     },
     tabIcon:{
         height:30,
-        width:30,
+        width:30
     }
 })
+
 
 export default class TabIcon extends Component {
     render(){

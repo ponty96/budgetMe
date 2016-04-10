@@ -1,7 +1,7 @@
 /**
  * Created by ponty on 10/04/2016.
  */
-import React,{Component, StyleSheet} from 'react-native';
+import React,{Component, StyleSheet, Dimensions} from 'react-native';
 import {Actions, Scene, Router, TabBar} from 'react-native-router-flux';
 
 
@@ -19,8 +19,10 @@ const styles = StyleSheet.create({
     flex: 1
   },
     tabBarStyle:{
+        flex:1,
+        flexDirection:"row",
         backgroundColor:"#95a5a6",
-        padding:5,
+        padding:0,
         height:45
     }
 })
