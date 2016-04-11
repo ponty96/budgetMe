@@ -15,6 +15,7 @@ import React,{
 } from 'react-native';
 
 import _ from 'lodash'
+import MyButton from '../components/button'
 
 const styles = StyleSheet.create({
     scrollView: {
@@ -22,11 +23,13 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         height: 500,
         backgroundColor: "#ecf0f1",
-        marginBottom: 30
+        marginBottom: 30,
+        position:"relative"
     },
     container: {
         padding: 10,
-        paddingTop: 5
+        paddingTop: 5,
+        position:"relative"
     },
     headerText: {
         fontSize: 18,
@@ -81,11 +84,53 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent:"flex-end"
     },
+    buttonText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white'
+    }
 
 })
 
 
 const dummy_expenses = [
+    {
+        budget_type: "Accommodation",
+        value: 2000,
+        isRed: false,
+        isGreen: true,
+        spent:2000
+    },
+    {
+        budget_type: "Accessories",
+        value: 50000,
+        isRed: true,
+        isGreen: false,
+        spent:72000
+    },
+    {
+        budget_type: "Work",
+        value: 1000,
+        isRed: false,
+        isGreen: false,
+        spent:500
+
+    },
+    {
+        budget_type: "Food & Relaxation",
+        value: 9000,
+        isRed: false,
+        isGreen: true,
+        spent:10000
+    },
+    {
+        budget_type: "Transport",
+        value: 500000,
+        isRed: false,
+        isGreen: false,
+        spent:500
+    },
+    {budget_type: "Freelance", value: 9000, isRed: true, isGreen: false,spent:10000},
     {
         budget_type: "Accommodation",
         value: 2000,
@@ -149,14 +194,21 @@ export default class BudgetTab extends Component {
             </View>)
     }
 
+    press = () =>{
+        console.log('I\'m suppose to create a new budget with this')
+    }
 
     render() {
         return (
             <ScrollView style={styles.scrollView}>
                 <View style={styles.container}>
+                    <MyButton onPress={this.press}>
+                        <Text style={styles.buttonText}>+</Text>
+                    </MyButton>
                     <View>
                         <Text style={styles.headerText}>Budgets</Text>
                     </View>
+                    <View>
                     {
                         dummy_expenses.map((content, index) => {
                             return (
@@ -170,6 +222,7 @@ export default class BudgetTab extends Component {
                             )
                         })
                     }
+                    </View>
 
                 </View>
             </ScrollView>
