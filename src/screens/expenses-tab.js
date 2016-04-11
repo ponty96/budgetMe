@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
     small: {
         fontSize: 11,
         marginBottom: 5,
-        marginRight:2
+        marginRight:2,
+        fontWeight:"bold"
     },
     amountIsRed: {
         fontSize: 11,
@@ -94,7 +95,7 @@ const dummy_expenses = [
     },
     {
         expense_type: "New Iphone 5s",
-        value: 50000,
+        value: 71000,
         isRed: false,
         isGreen: false,
         budget: {isBudget: false, budgets: ["Accessories"]}

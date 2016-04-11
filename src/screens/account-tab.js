@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
     },
     amount:{
         fontSize:11,
-        marginBottom:5
+        marginBottom:5,
+        fontWeight:"bold"
     },
     amountIsRed:{
         fontSize:11,
