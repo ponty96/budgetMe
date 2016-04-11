@@ -16,7 +16,8 @@ import BudgetTab from './screens/budget-tab'
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "#ecf0f1",
   },
     tabBarStyle:{
         flex:1,
@@ -35,9 +36,9 @@ export default class App extends Component {
             <Scene key="root">
                 <Scene key="tabbar" tabs={true} tabBarStyle={styles.tabBarStyle}>
                     <Scene key="cash-tab" title="Cash" component={CashTab} hideNavBar={true} icon={TabIcon}/>
-                    <Scene key="account-tab" title="Accounts" component={AccountTab} icon={TabIcon}/>
-                    <Scene key="expenses-tab" title="Expenses" component={ExpensesTab} icon={TabIcon}/>
-                    <Scene key="budget-tab" title="Budget" component={BudgetTab} icon={TabIcon}/>
+                    <Scene key="account-tab" title="Accounts" component={AccountTab} icon={TabIcon} hideNavBar={true}/>
+                    <Scene key="expenses-tab" title="Expenses" component={ExpensesTab} icon={TabIcon} hideNavBar={true}/>
+                    <Scene key="budget-tab" title="Budget" component={BudgetTab} icon={TabIcon} hideNavBar={true}/>
                 </Scene>
                 <Scene key="splash" component={SplashScreen} title="Holla!" hideNavBar={true}/>
 
