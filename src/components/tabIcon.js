@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     active_iconContainer:{
         flex:1,
         flexDirection:"column",
-        backgroundColor:"#bdc3c7",
+        backgroundColor:"#ecf0f1",
         width:iconWidth,
         paddingTop:10,
         alignItems:"center"
