@@ -46,7 +46,7 @@ export default class MyButton extends Component {
         return (
             <TouchableNativeFeedback
                 onPress={this.props.onPress}
-                background={TouchableNativeFeedback.SelectableBackground()}>
+                background={TouchableNativeFeedback.Ripple("#fff",true)}>
                 <View style={styles.button}>
                     {this.props.children}
                 </View>

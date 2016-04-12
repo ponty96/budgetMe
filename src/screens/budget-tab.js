@@ -196,7 +196,6 @@ export default class BudgetTab extends Component {
     }
 
     press = () =>{
-        console.log('I\'m suppose to create a new budget with this')
         Actions.create_budget();
     }
 
