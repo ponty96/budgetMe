@@ -21,8 +21,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         height:500,
         borderColor:"#000",
-        backgroundColor: "#ecf0f1",
-        marginBottom:30
+        marginTop:60
     },
     container: {
         padding:10
@@ -41,6 +40,11 @@ const styles = StyleSheet.create({
     viewContainer:{
         paddingLeft:5,
         marginTop:10
+    },
+    innerRow:{
+        marginTop:5,
+        flexDirection:"row",
+        justifyContent:"space-between"
     },
     rowContainer:{
         paddingLeft:5,
@@ -80,6 +84,16 @@ const budgets = [
     {name:"Cloths",id:232223, value:400},
     {name:"Gam",id:2230, value:7000}
 ]
+
+const dummy_account = [
+    {name:"Cash", id:433343443},
+    {name:"PayStack", id:43334332},
+    {name:"Allowance", id:4333},
+    {name:"Distru", id:43},
+    {name:"Pontysoft", id:43334343443443},
+    {name:"Freelance", id:433343443255085043}
+]
+
 
 
 export default class NewBudgetScreen extends Component {
@@ -122,32 +136,12 @@ export default class NewBudgetScreen extends Component {
         this.setState({budget:{id:id}})
     }
 
-    renderBudgetPicker = () => {
-        const isBudget =  this.state.budget.isBudget;
-        if(!isBudget){
-            return <View></View>
-        }
-        return (
-            <Picker
-                selectedValue={this.state.budget.id}
-                onValueChange={(id) => this.setBudget(id)}>
-                {
-                    budgets.map(content => {
-                        return <Picker.Item key={content.id} label={content.name} value={content.id} />
-                    })
-                }
-            </Picker>
-        )
-    }
+
 
     render(){
         return(
             <ScrollView style={styles.scrollView}>
                 <View style={styles.container}>
-                    <View>
-                        <Text style={styles.headerText}>New Budget</Text>
-                        <Image source={require('./../assets/images/Spending_Money-256.png')} style={styles.headerImg}/>
-                    </View>
                     <View style={styles.viewContainer}>
                         <Text style={styles.labelText}>Title</Text>
                         <TextInput
@@ -158,16 +152,8 @@ export default class NewBudgetScreen extends Component {
                         />
                     </View>
                     <View style={styles.viewContainer}>
-                        <Text style={styles.labelText}>Category</Text>
-                        <Picker
-                            selectedValue={this.state.category}
-                            onValueChange={(id) => this.setCategory(id)}>
-                            {
-                                categories.map(content => {
-                                    return <Picker.Item key={content.id} label={content.name} value={content.id} />
-                                })
-                            }
-                        </Picker>
+                        <Text style={styles.labelText}>Categories</Text>
+                        <Text>Display list of checkboxes instead</Text>
                     </View>
                     <View style={styles.viewContainer}>
                         <Text style={styles.labelText}>Description</Text>
@@ -187,11 +173,28 @@ export default class NewBudgetScreen extends Component {
                             style={styles.textInput}
                         />
                     </View>
-                    <View style={styles.rowContainer}>
-                        <Text style={styles.labelText}>Is this part of a budget</Text>
-                        <Switch
-                            onValueChange={(value) => this.isBudget(value)}
-                            value={this.state.budget.isBudget} />
+                    <View style={styles.viewContainer}>
+                        <Text style={styles.labelText}>Accounts</Text>
+                        <Text>Display list of checkboxes instead</Text>
+                    </View>
+                    <View style={styles.viewContainer}>
+
+                        <View style={styles.innerRow}>
+                            <Text style={styles.labelText}>Usage Limit</Text>
+                            <Switch
+                                onValueChange={(value) => this.isBudget(value)}
+                                value={this.state.budget.isBudget} />
+                        </View>
+                        <TextInput
+                            placeholder="Usage Limit"
+                            text={this.state.title}
+                            onChangeText={(text) => console.log('usage limit', text)}
+                            style={styles.textInput}
+                        />
+                    </View>
+                    <View style={styles.viewContainer}>
+                        <Text style={styles.labelText}>Budget Duration</Text>
+                        <Text>Use calendar picker instead</Text>
                     </View>
 
                 </View>

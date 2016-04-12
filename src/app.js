@@ -25,6 +25,9 @@ const styles = StyleSheet.create({
         backgroundColor:"#95a5a6",
         padding:0,
         height:45
+    },
+    sceneStyle : {
+        backgroundColor:"#ecf0f1"
     }
 })
 
@@ -32,7 +35,7 @@ export default class App extends Component {
     render(){
 
         return (
-        <Router style={styles.container}>
+        <Router style={styles.container} sceneStyle={styles.sceneStyle}>
             <Scene key="root">
 
                 <Scene key="tabbar" tabs={true} tabBarStyle={styles.tabBarStyle}>

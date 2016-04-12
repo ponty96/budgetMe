@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         height:500,
         borderColor:"#000",
-        backgroundColor: "#ecf0f1",
         marginBottom:30
     },
     container: {
@@ -193,7 +192,15 @@ export default class CashTab extends Component {
                             onValueChange={(value) => this.isBudget(value)}
                             value={this.state.budget.isBudget} />
                     </View>
-
+                    <View style={styles.viewContainer}>
+                        <Text style={styles.labelText}>Budget Duration</Text>
+                        <TextInput
+                            placeholder="Expense Description"
+                            text={this.state.description}
+                            onChangeText={(text) => this.setDescription(text)}
+                            style={styles.textInput}
+                        />
+                    </View>
                 </View>
             </ScrollView>
         )

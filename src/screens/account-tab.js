@@ -21,14 +21,12 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         height:600,
-        backgroundColor: "#ecf0f1",
         marginBottom:30
     },
     container: {
         padding: 10,
         paddingTop: 5,
         position:"relative",
-        backgroundColor: "#ecf0f1",
     },
     headerText:{
         fontSize:18,

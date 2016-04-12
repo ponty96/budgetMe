@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop:bottomPos,
     flexDirection:'column',
-    backgroundColor:"#bdc3c7"
   },
   input : {
       height:40,
