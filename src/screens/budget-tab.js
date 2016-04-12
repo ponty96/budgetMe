@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     scrollView: {
         flex: 1,
         flexDirection: 'column',
-        height: 500,
+        height: 600,
         backgroundColor: "#ecf0f1",
         marginBottom: 30,
         position:"relative"
@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
         paddingTop: 5,
-        position:"relative"
+        position:"relative",
+        backgroundColor: "#ecf0f1",
     },
     headerText: {
         fontSize: 18,
@@ -200,14 +201,15 @@ export default class BudgetTab extends Component {
 
     render() {
         return (
+            <View>
+                <View style={styles.container}>
+                    <Text style={styles.headerText}>Budgets</Text>
+                </View>
+                <MyButton onPress={this.press}>
+                    <Text style={styles.buttonText}>+</Text>
+                </MyButton>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.container}>
-                    <MyButton onPress={this.press}>
-                        <Text style={styles.buttonText}>+</Text>
-                    </MyButton>
-                    <View>
-                        <Text style={styles.headerText}>Budgets</Text>
-                    </View>
                     <View>
                     {
                         dummy_expenses.map((content, index) => {
@@ -226,6 +228,7 @@ export default class BudgetTab extends Component {
 
                 </View>
             </ScrollView>
+                </View>
         )
     }
 }

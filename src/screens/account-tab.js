@@ -20,13 +20,15 @@ const styles = StyleSheet.create({
     scrollView:{
         flex: 1,
         flexDirection: 'column',
-        height:500,
+        height:600,
         backgroundColor: "#ecf0f1",
         marginBottom:30
     },
     container: {
-        padding:10,
-        paddingTop:5
+        padding: 10,
+        paddingTop: 5,
+        position:"relative",
+        backgroundColor: "#ecf0f1",
     },
     headerText:{
         fontSize:18,
@@ -97,11 +99,12 @@ export default class AccountTab extends Component {
 
     render(){
         return(
-            <ScrollView style={styles.scrollView}>
+            <View>
                 <View style={styles.container}>
-                    <View>
                         <Text style={styles.headerText}>Accounts</Text>
                     </View>
+            <ScrollView style={styles.scrollView}>
+                <View style={styles.container}>
                     {
                         dummy_account.map((content,index) => {
                             return (
@@ -118,6 +121,7 @@ export default class AccountTab extends Component {
 
                 </View>
             </ScrollView>
+                </View>
         )
     }
 }

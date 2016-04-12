@@ -20,13 +20,15 @@ const styles = StyleSheet.create({
     scrollView: {
         flex: 1,
         flexDirection: 'column',
-        height: 500,
+        height: 600,
         backgroundColor: "#ecf0f1",
         marginBottom: 30
     },
     container: {
         padding: 10,
-        paddingTop: 5
+        paddingTop: 5,
+        position:"relative",
+        backgroundColor: "#ecf0f1"
     },
     headerText: {
         fontSize: 18,
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
     },
     acct_Icon: {
         height: 30,
-        width: 30,
+        width: 30
     },
     gridContainer: {
         flex: 1,
@@ -158,17 +160,19 @@ export default class ExpensesTab extends Component {
 
     renderBudgets(budgets) {
         return budgets.map((content, index) => {
-            return <Text key={index} style={styles.small}>{index > 1 ? `& ${content}` : content}</Text>
+            return <Text key={index} style={styles.small}>{index > 0 ? `& ${content}` : content}</Text>
         })
     }
 
     render() {
         return (
+            <View>
+                <View style={styles.container}>
+                    <Text style={styles.headerText}>Expenses</Text>
+                </View>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.container}>
-                    <View>
-                        <Text style={styles.headerText}>Expenses</Text>
-                    </View>
+
                     {
                         dummy_expenses.map((content, index) => {
                             return (
@@ -185,6 +189,7 @@ export default class ExpensesTab extends Component {
 
                 </View>
             </ScrollView>
+                </View>
         )
     }
 }
