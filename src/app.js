@@ -13,7 +13,7 @@ import AccountTab from './screens/account-tab'
 import CashTab from './screens/cash-tab'
 import ExpensesTab from './screens/expenses-tab'
 import BudgetTab from './screens/budget-tab'
-
+import NewBudgetScreen from './screens/create-budget-screen'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -40,7 +40,9 @@ export default class App extends Component {
                     <Scene key="expenses-tab" title="Expenses" component={ExpensesTab} icon={TabIcon} hideNavBar={true}/>
                     <Scene key="budget-tab" title="Budget" component={BudgetTab} icon={TabIcon} hideNavBar={true}/>
                 </Scene>
+                <Scene key="create_budget" component={NewBudgetScreen} title="New Budget" />
                 <Scene key="splash" component={SplashScreen} title="Holla!" hideNavBar={true}/>
+
 
               </Scene>
         </Router>

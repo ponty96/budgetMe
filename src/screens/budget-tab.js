@@ -16,6 +16,7 @@ import React,{
 
 import _ from 'lodash'
 import MyButton from '../components/button'
+import { Actions } from 'react-native-router-flux'
 
 const styles = StyleSheet.create({
     scrollView: {
@@ -197,6 +198,7 @@ export default class BudgetTab extends Component {
 
     press = () =>{
         console.log('I\'m suppose to create a new budget with this')
+        Actions.create_budget;
     }
 
     render() {
