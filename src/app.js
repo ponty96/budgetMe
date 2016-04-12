@@ -2,7 +2,7 @@
  * Created by ponty on 10/04/2016.
  */
 import React,{Component, StyleSheet, Dimensions} from 'react-native';
-import {Actions, Scene, Router, TabBar} from 'react-native-router-flux';
+import {Actions, Scene, Router, TabBar,  Modal} from 'react-native-router-flux';
 
 
 import TabIcon from './components/tabIcon'
@@ -32,18 +32,17 @@ export default class App extends Component {
     render(){
 
         return (
-        <Router style={styles.container}> 
+        <Router style={styles.container}>
             <Scene key="root">
+
                 <Scene key="tabbar" tabs={true} tabBarStyle={styles.tabBarStyle}>
                     <Scene key="cash-tab" title="Cash" component={CashTab} hideNavBar={true} icon={TabIcon}/>
                     <Scene key="account-tab" title="Accounts" component={AccountTab} icon={TabIcon} hideNavBar={true}/>
                     <Scene key="expenses-tab" title="Expenses" component={ExpensesTab} icon={TabIcon} hideNavBar={true}/>
                     <Scene key="budget-tab" title="Budget" component={BudgetTab} icon={TabIcon} hideNavBar={true}/>
                 </Scene>
-                <Scene key="create_budget" component={NewBudgetScreen} title="New Budget" />
-                <Scene key="splash" component={SplashScreen} title="Holla!" hideNavBar={true}/>
-
-
+                <Scene key="create_budget" component={NewBudgetScreen} title="New Budget" duration={1}/>
+                <Scene key="splash" component={SplashScreen} title="Holla!"/>
               </Scene>
         </Router>
         )

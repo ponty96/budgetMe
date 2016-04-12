@@ -87,9 +87,10 @@ const styles = StyleSheet.create({
         justifyContent:"flex-end"
     },
     buttonText: {
-        fontSize: 18,
+        fontSize: 14,
         fontWeight: 'bold',
-        color: 'white'
+        color: 'white',
+        textAlign:"center"
     }
 
 })
@@ -198,7 +199,7 @@ export default class BudgetTab extends Component {
 
     press = () =>{
         console.log('I\'m suppose to create a new budget with this')
-        Actions.create_budget;
+        Actions.create_budget();
     }
 
     render() {
@@ -207,10 +208,7 @@ export default class BudgetTab extends Component {
                 <View style={styles.container}>
                     <Text style={styles.headerText}>Budgets</Text>
                 </View>
-                <MyButton onPress={this.press}>
-                    <Text style={styles.buttonText}>+</Text>
-                </MyButton>
-            <ScrollView style={styles.scrollView}>
+                <ScrollView style={styles.scrollView}>
                 <View style={styles.container}>
                     <View>
                     {
@@ -227,9 +225,11 @@ export default class BudgetTab extends Component {
                         })
                     }
                     </View>
-
                 </View>
             </ScrollView>
+                <MyButton onPress={this.press}>
+                    <Text style={styles.buttonText}>+</Text>
+                </MyButton>
                 </View>
         )
     }

@@ -9,7 +9,7 @@ import React,{
     StyleSheet,
     TextInput,
     Dimensions,
-    TouchableHighlight,
+    TouchableHighLight,
     Image,
     ScrollView
 } from 'react-native';
