@@ -9,6 +9,7 @@ import TabIcon from './components/tabIcon'
 
 
 import SplashScreen from './screens/splash-screen'
+import RegScreen from './screens/reg-screen'
 import AccountTab from './screens/account-tab'
 import CashTab from './screens/cash-tab'
 import ExpensesTab from './screens/expenses-tab'
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
         height:45
     },
     sceneStyle : {
-        backgroundColor:"#ecf0f1"
+        backgroundColor:"#ffffff"
     }
 })
 
@@ -38,6 +39,9 @@ export default class App extends Component {
         <Router style={styles.container} sceneStyle={styles.sceneStyle}>
             <Scene key="root">
 
+                <Scene key="splash" component={SplashScreen} title="Holla!" hideNavBar={true}/>
+                <Scene key="reg_screen" component={RegScreen} title="Holla!" hideNavBar={true}/>
+
                 <Scene key="tabbar" tabs={true} tabBarStyle={styles.tabBarStyle}>
                     <Scene key="cash-tab" title="Cash" component={CashTab} hideNavBar={true} icon={TabIcon}/>
                     <Scene key="account-tab" title="Accounts" component={AccountTab} icon={TabIcon} hideNavBar={true}/>
@@ -45,7 +49,6 @@ export default class App extends Component {
                     <Scene key="budget-tab" title="Budget" component={BudgetTab} icon={TabIcon} hideNavBar={true}/>
                 </Scene>
                 <Scene key="create_budget" component={NewBudgetScreen} title="New Budget" duration={1}/>
-                <Scene key="splash" component={SplashScreen} title="Holla!"/>
               </Scene>
         </Router>
         )
