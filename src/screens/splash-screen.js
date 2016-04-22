@@ -16,7 +16,6 @@ const bottomPos = height - (height * 0.42);
 const styles = StyleSheet.create({
     container: {
     flex: 1,
-    paddingTop:bottomPos,
     flexDirection:'column',
     backgroundColor:"#00BAFF",
     alignItems:"center"

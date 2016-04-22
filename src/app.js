@@ -10,11 +10,16 @@ import TabIcon from './components/tabIcon'
 
 import SplashScreen from './screens/splash-screen'
 import RegScreen from './screens/reg-screen'
+import MenuScreen from './screens/menu-screen'
+
+
+
 import AccountTab from './screens/account-tab'
 import CashTab from './screens/cash-tab'
 import ExpensesTab from './screens/expenses-tab'
 import BudgetTab from './screens/budget-tab'
 import NewBudgetScreen from './screens/create-budget-screen'
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -39,6 +44,7 @@ export default class App extends Component {
         <Router style={styles.container} sceneStyle={styles.sceneStyle}>
             <Scene key="root">
 
+                <Scene key="menu_screen" component={MenuScreen} hideNavBar={true}/>
                 <Scene key="splash" component={SplashScreen} title="Holla!" hideNavBar={true}/>
                 <Scene key="reg_screen" component={RegScreen} title="Holla!" hideNavBar={true}/>
 
