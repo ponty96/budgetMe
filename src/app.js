@@ -44,8 +44,8 @@ export default class App extends Component {
         <Router style={styles.container} sceneStyle={styles.sceneStyle}>
             <Scene key="root">
 
-                <Scene key="menu_screen" component={MenuScreen} hideNavBar={true}/>
                 <Scene key="cashflow" component={CashflowScreen} hideNavBar={true}/>
+                <Scene key="menu_screen" component={MenuScreen} hideNavBar={true}/>
                 <Scene key="splash" component={SplashScreen} title="Holla!" hideNavBar={true}/>
                 <Scene key="reg_screen" component={RegScreen} title="Holla!" hideNavBar={true}/>
 
