@@ -17,6 +17,8 @@ import React,{
 
 
 import {Actions } from 'react-native-router-flux'
+import moment from 'moment'
+
 const { width, height } = Dimensions.get('window');
 
 const styles =  StyleSheet.create({
@@ -81,7 +83,7 @@ export default class FlowItem extends Component{
                         {this.getAmount(type, this.props.amount)}
                     </View>
                 </View>
-                <Text style={styles.time}>{this.props.time}</Text>
+                <Text style={styles.time}>{moment(this.props.time).format('LT')}</Text>
             </View>
         )
     }

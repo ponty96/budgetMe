@@ -12,39 +12,41 @@ import React,{
     ListView
 } from 'react-native';
 
+import moment from 'moment'
+
 const dummy_cash_flow = [
     {
         title:"Sheddy Leaves",
         amount:30000,
-        date:"28|April|2016",
+        date:"2016-04-22T16:40:30+01:00",
         time:"23:45",
         type:"credit"
     },
     {
         title:"Sheddy Leaves",
         amount:30000,
-        date:"28|April|2016",
+        date:"2016-04-21T16:40:30+01:00",
         time:"23:45",
         type:"debit"
     },
     {
         title:"Data",
         amount:30000,
-        date:"27|April|2016",
+        date:"2016-04-21T16:35:30+01:00",
         time:"23:45",
         type:"debit"
     },
     {
         title:"Blazibaze ",
         amount:30000,
-        date:"27|April|2016",
+        date:"2016-04-20T16:40:30+01:00",
         time:"21:45",
         type:"credit"
     },
     {
         title:"Movie",
         amount:30000,
-        date:"27|April|2016",
+        date:"2016-04-19T16:40:30+01:00",
         time:"19:45",
         type:"credit"
     }
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
 
 export default class CashflowScreen extends Component {
     constructor(props){
-        super(props)
+        super(props);
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
         this.state = {
             cashflow_ds:ds,
@@ -81,23 +83,31 @@ export default class CashflowScreen extends Component {
         })
     }
 
-    renderDateItem(rowData){
+    renderDateItem = (rowData) => {
+        const same_record = this.state.cashflow_raw.filter(con => {
+            const con_date = moment(con.date).format('ll');
+            const rowData_date = moment(rowData.date).format('ll');
+            if(con_date == rowData_date){
+                return con;
+            }
+        })
         return <DateListItem
-                date={rowData.date}/>
+                date={rowData.date}
+                records={same_record.length}/>
     }
 
     renderRow = (rowData, sectionID, rowID, highlightRow) => {
-        console.log(rowID);
-        console.log(this.state.cashflow_raw[rowID])
-        console.log(rowData)
+
         if(rowID > 0) {
             const prev = this.state.cashflow_raw[rowID -1];
+            const prev_date = moment(prev.date).format('ll');
+            const rowData_date = moment(rowData.date).format('ll');
             return (
                 <View>
-                    { prev.date != rowData.date ? this.renderDateItem(rowData) : <View></View> }
+                    { prev_date != rowData_date ? this.renderDateItem(rowData) : <View></View> }
                     <FlowItem title={rowData.title}
                               amount={rowData.amount}
-                              time={rowData.time}
+                              time={rowData.date}
                               type={rowData.type}/>
                 </View>
             )
@@ -107,7 +117,7 @@ export default class CashflowScreen extends Component {
                 { this.renderDateItem(rowData) }
                 <FlowItem title={rowData.title}
                           amount={rowData.amount}
-                          time={rowData.time}
+                          time={rowData.date}
                           type={rowData.type}/>
             </View>
         )

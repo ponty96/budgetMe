@@ -19,6 +19,8 @@ import React,{
 import {Actions } from 'react-native-router-flux'
 const { width, height } = Dimensions.get('window');
 
+import moment from 'moment'
+
 const styles = StyleSheet.create({
     row: {
         flexDirection: "row",
@@ -59,8 +61,9 @@ const styles = StyleSheet.create({
     date: {
         color: "#00BAFF",
         fontFamily: "Raleway_SemiBold",
-        fontSize: 12,
-        textAlign: "center"
+        fontSize: 16,
+        textAlign: "center",
+        marginTop:7
     },
     innerRow: {
         flexDirection: "row"
@@ -72,15 +75,13 @@ export default class DateListItem extends Component {
             <View style={styles.row}>
                 <View style={styles.innerRow}>
                     <View style={styles.round}>
-                        <Text style={styles.date}>28</Text>
-                        <Text style={styles.date}>APR</Text>
-
+                        <Text style={styles.date}>{this.props.records}</Text>
                     </View>
                     <Text style={styles.relativeTime}>Today</Text>
                 </View>
 
 
-                <Text style={styles.records}>4 records</Text>
+                <Text style={styles.records}>{moment(this.props.date).fromNow()}</Text>
 
             </View>
         )
