@@ -12,7 +12,7 @@ import SplashScreen from './screens/splash-screen'
 import RegScreen from './screens/reg-screen'
 import MenuScreen from './screens/menu-screen'
 
-
+import CashflowScreen from './screens/cashflow-screen'
 
 import AccountTab from './screens/account-tab'
 import CashTab from './screens/cash-tab'
@@ -45,6 +45,7 @@ export default class App extends Component {
             <Scene key="root">
 
                 <Scene key="menu_screen" component={MenuScreen} hideNavBar={true}/>
+                <Scene key="cashflow" component={CashflowScreen} hideNavBar={true}/>
                 <Scene key="splash" component={SplashScreen} title="Holla!" hideNavBar={true}/>
                 <Scene key="reg_screen" component={RegScreen} title="Holla!" hideNavBar={true}/>
 
