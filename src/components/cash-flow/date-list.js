@@ -24,7 +24,7 @@ import moment from 'moment'
 const styles = StyleSheet.create({
     row: {
         flexDirection: "row",
-        backgroundColor: "#00BAFF",
+        backgroundColor: "#E4E7E1",
         padding: 7,
         paddingLeft:10,
         paddingRight:10,
@@ -40,14 +40,14 @@ const styles = StyleSheet.create({
     relativeTime: {
         fontFamily: "Raleway_SemiBold",
         fontSize: 16,
-        color: "#fff",
+        color: "#5C5C5C",
         marginTop:9,
         marginLeft:10
     },
     records:{
         fontFamily: "Raleway_SemiBold",
         fontSize: 13,
-        color: "#fff",
+        color: "rgb(92,92,92)",
         marginTop:9
     },
     round: {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         paddingTop: 2
     },
     date: {
-        color: "#00BAFF",
+        color: "#5C5C5C",
         fontFamily: "Raleway_SemiBold",
         fontSize: 16,
         textAlign: "center",
@@ -71,13 +71,17 @@ const styles = StyleSheet.create({
 })
 export default class DateListItem extends Component {
     render() {
+        const calendar_date = moment(this.props.date).calendar();
+        const indexOfAt = calendar_date.indexOf('at');
+        const day = calendar_date.substr(0,indexOfAt)
+
         return (
             <View style={styles.row}>
                 <View style={styles.innerRow}>
                     <View style={styles.round}>
                         <Text style={styles.date}>{this.props.records}</Text>
                     </View>
-                    <Text style={styles.relativeTime}>Today</Text>
+                    <Text style={styles.relativeTime}>{day}</Text>
                 </View>
 
 
