@@ -23,13 +23,15 @@ const styles =  StyleSheet.create({
     row:{
         flexDirection:"row",
         justifyContent:"space-between",
-        marginTop:-3
+        marginTop:-3,
+        paddingLeft: 10,
+        paddingRight: 10,
 
     },
     icon:{
         width:28,
         height:60,
-        marginRight:15,
+        marginRight:20,
         marginTop:2.5
     },
     title:{

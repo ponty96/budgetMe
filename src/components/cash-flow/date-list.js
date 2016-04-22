@@ -19,31 +19,69 @@ import React,{
 import {Actions } from 'react-native-router-flux'
 const { width, height } = Dimensions.get('window');
 
-const styles =  StyleSheet.create({
-    row:{
-        flex:1,
-        flexDirection:"row",
+const styles = StyleSheet.create({
+    row: {
+        flexDirection: "row",
         backgroundColor: "#00BAFF",
-        padding:10
+        padding: 7,
+        paddingLeft:10,
+        paddingRight:10,
+        justifyContent: "space-between"
 
     },
-    image:{
-        width:18,
-        height:18,
-        marginRight:10,
-        marginTop:2.5
+    image: {
+        width: 18,
+        height: 18,
+        marginRight: 10,
+        marginTop: 2.5
     },
-    text:{
-        fontFamily:"Raleway_SemiBold",
-        fontSize:16,
-        color:"#fff"
+    relativeTime: {
+        fontFamily: "Raleway_SemiBold",
+        fontSize: 16,
+        color: "#fff",
+        marginTop:9,
+        marginLeft:10
+    },
+    records:{
+        fontFamily: "Raleway_SemiBold",
+        fontSize: 13,
+        color: "#fff",
+        marginTop:9
+    },
+    round: {
+        height: 42,
+        width: 42,
+        borderRadius: 21,
+        backgroundColor: "#fff",
+        alignItems: "center",
+        paddingTop: 2
+    },
+    date: {
+        color: "#00BAFF",
+        fontFamily: "Raleway_SemiBold",
+        fontSize: 12,
+        textAlign: "center"
+    },
+    innerRow: {
+        flexDirection: "row"
     }
 })
-export default class DateList extends Component{
-    render(){
+export default class DateListItem extends Component {
+    render() {
         return (
-            <View>
-                <Text>fdggggfgfgffg</Text>
+            <View style={styles.row}>
+                <View style={styles.innerRow}>
+                    <View style={styles.round}>
+                        <Text style={styles.date}>28</Text>
+                        <Text style={styles.date}>APR</Text>
+
+                    </View>
+                    <Text style={styles.relativeTime}>Today</Text>
+                </View>
+
+
+                <Text style={styles.records}>4 records</Text>
+
             </View>
         )
     }

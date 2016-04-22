@@ -51,7 +51,7 @@ const dummy_cash_flow = [
 ]
 
 import NavBar from '../components/navBar/navbar'
-import DateList from '../components/cash-flow/date-list'
+import DateListItem from '../components/cash-flow/date-list'
 import FlowItem from '../components/cash-flow/flow-item'
 
 const styles = StyleSheet.create({
@@ -75,27 +75,51 @@ export default class CashflowScreen extends Component {
         }
     }
     componentWillMount(){
-        this.setState({cashflow_ds:this.state.cashflow_ds.cloneWithRows(dummy_cash_flow)})
+        this.setState({
+            cashflow_ds:this.state.cashflow_ds.cloneWithRows(dummy_cash_flow),
+            cashflow_raw:dummy_cash_flow
+        })
+    }
+
+    renderDateItem(rowData){
+        return <DateListItem
+                date={rowData.date}/>
     }
 
     renderRow = (rowData, sectionID, rowID, highlightRow) => {
+        console.log(rowID);
+        console.log(this.state.cashflow_raw[rowID])
+        console.log(rowData)
+        if(rowID > 0) {
+            const prev = this.state.cashflow_raw[rowID -1];
+            return (
+                <View>
+                    { prev.date != rowData.date ? this.renderDateItem(rowData) : <View></View> }
+                    <FlowItem title={rowData.title}
+                              amount={rowData.amount}
+                              time={rowData.time}
+                              type={rowData.type}/>
+                </View>
+            )
+        }
         return (
-           <FlowItem title={rowData.title}
-                     amount={rowData.amount}
-                     time={rowData.time}
-                     type={rowData.type}/>
+            <View>
+                { this.renderDateItem(rowData) }
+                <FlowItem title={rowData.title}
+                          amount={rowData.amount}
+                          time={rowData.time}
+                          type={rowData.type}/>
+            </View>
         )
     }
     render(){
         return (
             <View>
                 <NavBar title="Cashflow"/>
-                <View style={styles.body}>
-                    <ListView
-                        renderRow={this.renderRow}
-                        dataSource={this.state.cashflow_ds}
-                    />
-                </View>
+                <ListView
+                    renderRow={this.renderRow}
+                    dataSource={this.state.cashflow_ds}
+                />
             </View>
         )
     }
